@@ -9,5 +9,3 @@ services:
     envVars:
       - key: WALLET_ADDRESS
         value: 0x231a9775e036cfb4abb9c8bd93099ad20a3e288c
-      - key: PORT
-        value: "3000"
