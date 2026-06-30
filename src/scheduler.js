@@ -42,6 +42,6 @@ export function startScheduler() {
   cron.schedule("*/30 * * * *", refresh);
   console.log("Scheduler started: every 30 minutes");
 
-  // Run immediately on start
-  refresh();
+  // Delay first scrape by 10 seconds to let server start cleanly
+  setTimeout(() => refresh(), 10000);
 }
