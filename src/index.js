@@ -1,4 +1,3 @@
-import "dotenv/config";
 import express from "express";
 import { createX402 } from "./x402.js";
 import { getCache, getAge } from "./cache.js";
@@ -8,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 const WALLET = process.env.WALLET_ADDRESS;
 
 if (!WALLET) {
-  console.error("FATAL: WALLET_ADDRESS not set in .env");
+  console.error("FATAL: WALLET_ADDRESS not set");
   process.exit(1);
 }
 
