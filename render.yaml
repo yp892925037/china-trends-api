@@ -8,4 +8,4 @@ services:
     startCommand: node src/index.js
     envVars:
       - key: WALLET_ADDRESS
-        value: 0x231a9775e036cfb4abb9c8bd93099ad20a3e288c
+        value: 0x你的Base链钱包地址
