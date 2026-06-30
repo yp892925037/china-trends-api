@@ -58,6 +58,37 @@ app.get("/", (req, res) => {
   });
 });
 
+// x402 auto-discovery — AI agents find pricing without any marketplace
+app.get("/.well-known/x402.json", (req, res) => {
+  res.json({
+    name: "China Hot Trends API",
+    description:
+      "Real-time trending topics from Chinese social media: Weibo, Baidu, Bilibili, Zhihu, Douyin",
+    version: "1.0.0",
+    endpoints: {
+      free: ["/api/health", "/api/preview"],
+      paid: {
+        "/api/trends/all": {
+          price: "$0.01",
+          network: NETWORK,
+          currency: "USDC",
+          description: "Full hot trends from all 5 platforms",
+        },
+        "/api/trends/weibo": { price: "$0.01", network: NETWORK, currency: "USDC" },
+        "/api/trends/baidu": { price: "$0.01", network: NETWORK, currency: "USDC" },
+        "/api/trends/bilibili": { price: "$0.01", network: NETWORK, currency: "USDC" },
+        "/api/trends/zhihu": { price: "$0.01", network: NETWORK, currency: "USDC" },
+        "/api/trends/douyin": { price: "$0.01", network: NETWORK, currency: "USDC" },
+      },
+    },
+    payment: {
+      protocol: "x402",
+      network: NETWORK,
+      payTo: WALLET,
+    },
+  });
+});
+
 app.get("/api/health", (req, res) => {
   const cache = getCache();
   res.json({
